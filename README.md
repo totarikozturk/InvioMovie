@@ -21,6 +21,6 @@ On this screen, the user determines the movie wants to search, then the results 
 
 **API Documentation**
 
-• You can access the “OMDB API” from the link below.
-http://omdbpi.com/
-You can see the sample request url and response by searching under Examples at the bottom of the page at this link."
+ You can access the “OMDB API” from the link below.
+ http://omdbpi.com/
+ You can see the sample request url and response by searching under Examples at the bottom of the page at this link."
