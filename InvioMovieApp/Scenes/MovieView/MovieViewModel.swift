@@ -12,10 +12,13 @@ class MovieViewModel {
     private var movieService = MovieService()
     private var searchedMovie: MoviesData?
 
-    func getMovies(for searchString: String, completion: @escaping () -> Void) {
-        movieService.getSearchMovies(with: searchString) { movieSearch in
-            self.searchedMovie = movieSearch
-            print(self.searchedMovie?.poster as Any)
+    func getMovies(for searchString: String, completion: @escaping(MoviesData) -> Void ) {
+        movieService.getSearchMovies(with: searchString) { (result) in
+            self.searchedMovie = result
+            guard let searchedMovie = self.searchedMovie else {
+                return
+            }
+            completion(searchedMovie)
         }
     }
 
