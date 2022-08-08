@@ -18,7 +18,8 @@ class MovieService {
 
     func getSearchMovies(with searchQuery: String, completion: @escaping(MoviesData) -> Void) {
 
-        let url = APIKey.baseUrl + "?apikey=" + APIKey.apiKey + "&t=" + searchQuery
+        let escapedSearchQuery = searchQuery.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+        let url = APIKey.baseUrl + "?apikey=" + APIKey.apiKey + "&t=" + escapedSearchQuery
 
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default,
                    headers: nil, interceptor: nil).response { (response ) in
