@@ -54,7 +54,7 @@ extension MovieDetailViewController {
     }
 
     func makeDetailYearLabel() {
-        detailYearLabel.text = "Year:"
+        detailYearLabel.text = Texts.detailYearLabel
         detailYearLabel.textColor = CustomColor.titleColor
         detailYearLabel.font = .boldSystemFont(ofSize: 22)
         detailYearLabel.snp.makeConstraints { make in
@@ -72,7 +72,7 @@ extension MovieDetailViewController {
     }
 
     func makeDetailRateLabel() {
-        detailRateLabel.text = "Rate:"
+        detailRateLabel.text = Texts.detailRateLabel
         detailRateLabel.textColor = CustomColor.titleColor
         detailRateLabel.font = .boldSystemFont(ofSize: 22)
         detailRateLabel.snp.makeConstraints { make in
