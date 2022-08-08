@@ -70,6 +70,7 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cellSelect: UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath) else { return }
         cellSelect.selectionStyle = .none
+        DetailFetchdata.data = self.movieData
         openDetailView()
     }
 
