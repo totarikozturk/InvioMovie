@@ -7,15 +7,6 @@
 
 import Foundation
 
-struct Search: Codable {
-    let response, error: String
-
-    enum CodingKeys: String, CodingKey {
-        case response = "Response"
-        case error = "Error"
-    }
-}
-
 struct MoviesData: Codable {
     var title: String
     var year: String

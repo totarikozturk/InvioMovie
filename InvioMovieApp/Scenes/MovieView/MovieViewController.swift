@@ -11,7 +11,7 @@ class MovieViewController: UIViewController {
 
     private let viewModel = MovieViewModel()
     private var movieData: MoviesData?
-    private var notFound: Search?
+    private var notFound: SearchNotFound?
     private var searchText = String()
 
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -60,6 +60,7 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.movieCellIdentifier,
                                                        for: indexPath) as? MovieCell else { return UITableViewCell() }
+        cell.selectionStyle = .none
         let movie = self.movieData
         guard let cellData = movie else { return cell }
         cell.setCellWithValuesOf(cellData)
@@ -68,6 +69,7 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cellSelect: UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath) else { return }
+        cellSelect.selectionStyle = .none
         openDetailView()
     }
 

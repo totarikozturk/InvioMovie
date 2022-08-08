@@ -1,22 +1,18 @@
 //
-//  MovieService.swift
+//  MovieNotFoundService.swift
 //  InvioMovieApp
 //
-//  Created by TarıkOzturk on 6.08.2022.
+//  Created by TarıkOzturk on 8.08.2022.
 //
 
 import Foundation
 import Alamofire
 
-protocol ServiceProtocol {
-    func didFailWithError(error: Error)
-}
-
-class MovieService {
+class MovieNotFoundService {
 
     var service: ServiceProtocol?
 
-    func getSearchMovies(with searchQuery: String, completion: @escaping(MoviesData) -> Void) {
+    func getSearchNotFoundMovies(with searchQuery: String, completion: @escaping(SearchNotFound) -> Void) {
 
         let url = APIKey.baseUrl + "?apikey=" + APIKey.apiKey + "&t=" + searchQuery
 
@@ -24,14 +20,14 @@ class MovieService {
                    headers: nil, interceptor: nil).response { (response ) in
 
             guard let data = response.data else {return}
-            guard let moviesSearch = self.parseJsonFound(data) else { return }
+            guard let moviesSearch = self.parseJsonNotFound(data) else { return }
             completion(moviesSearch)
         }
     }
 
-    func parseJsonFound(_ moviesData: Data) -> MoviesData? {
+    func parseJsonNotFound(_ moviesData: Data) -> SearchNotFound? {
         do {
-            let decodeData = try JSONDecoder().decode(MoviesData.self, from: moviesData)
+            let decodeData = try JSONDecoder().decode(SearchNotFound.self, from: moviesData)
             return decodeData
 
         } catch {

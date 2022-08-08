@@ -10,8 +10,9 @@ import Foundation
 class MovieViewModel {
 
     private var movieService = MovieService()
+    private var movieNotFoundService = MovieNotFoundService()
     private var searchedMovie: MoviesData?
-    private var notFoundMovie: Search?
+    private var notFoundMovie: SearchNotFound?
 
     func getMovies(for searchString: String, completion: @escaping(MoviesData) -> Void ) {
         movieService.getSearchMovies(with: searchString) { (result) in
@@ -23,8 +24,8 @@ class MovieViewModel {
         }
     }
 
-    func getSearchNotFoundMovies(for searchString: String, completion: @escaping(Search) -> Void ) {
-        movieService.getSearchNotFoundMovies(with: searchString) { (result) in
+    func getSearchNotFoundMovies(for searchString: String, completion: @escaping(SearchNotFound) -> Void ) {
+        movieNotFoundService.getSearchNotFoundMovies(with: searchString) { (result) in
             self.notFoundMovie = result
             guard let notfound = self.notFoundMovie else {
                 return
