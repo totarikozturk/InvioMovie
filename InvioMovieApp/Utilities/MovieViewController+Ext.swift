@@ -24,4 +24,5 @@ extension MovieViewController {
         alert.addAction(UIAlertAction(title: "Try again", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+
 }

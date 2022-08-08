@@ -28,11 +28,13 @@ class MovieViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         enableHero()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+
         disableHero()
     }
 
@@ -87,7 +89,9 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MovieViewController: UISearchBarDelegate {
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchText = searchText
     }
+
 }

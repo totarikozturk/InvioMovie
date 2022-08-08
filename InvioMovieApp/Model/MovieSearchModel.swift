@@ -8,6 +8,7 @@
 import Foundation
 
 struct MoviesData: Codable {
+
     var title: String
     var year: String
     var released: String
@@ -29,4 +30,5 @@ struct MoviesData: Codable {
             case poster = "Poster"
             case imdbRating = "imdbRating"
     }
+
 }

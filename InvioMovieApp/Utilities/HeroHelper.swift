@@ -27,6 +27,7 @@ extension UIViewController {
         navigationController?.hero.navigationAnimationType = navigationAnimationType
         navigationController?.pushViewController(viewController, animated: true)
     }
+
 }
 
 extension UINavigationController {

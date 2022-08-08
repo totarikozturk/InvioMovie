@@ -8,10 +8,12 @@
 import Foundation
 
 struct SearchNotFound: Codable {
+
     let response, error: String
 
     enum CodingKeys: String, CodingKey {
         case response = "Response"
         case error = "Error"
     }
+
 }

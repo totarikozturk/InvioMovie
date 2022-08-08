@@ -114,4 +114,5 @@ extension MovieDetailViewController {
         navigationController?.navigationBar.backgroundColor = CustomColor.backGroundColor
         navigationItem.title = DetailFetchdata.data?.title
     }
+
 }

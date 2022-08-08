@@ -8,6 +8,8 @@
 import Foundation
 
 class DetailFetchdata {
+
     static let shared = DetailFetchdata()
     static var data: MoviesData?
+
 }
