@@ -9,6 +9,7 @@ On this screen, the user determines the movie wants to search, then the results 
 
  	-MVVM
 	-Singleton
+	-SwiftLint
  	-Snapkit
 	-Kingfisher
 	-Alamofire
@@ -19,7 +20,7 @@ On this screen, the user determines the movie wants to search, then the results 
 
 **1. Search Screen**
 
-	- When this page is opened, a loading animation and service calls to the omdb api are displayed in the middle of the screen.
+	-When this page is opened, a loading animation and service calls to the omdb api are displayed in the middle of the screen.
  	-The page has a search feature by movie name.
  	-Incoming result is listed. If there is no result, a warning is issued.
 
