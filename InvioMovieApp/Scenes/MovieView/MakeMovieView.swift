@@ -12,6 +12,7 @@ extension MovieViewController {
 
     func configureView() {
         drawDesign()
+        makeActivityIndicator()
         navigationBarAppearance()
         makeSearchBar()
         makeSearchButton()
@@ -19,29 +20,45 @@ extension MovieViewController {
     }
 
     func drawDesign() {
+        view.addSubview(searchBar)
         view.addSubview(searchButton)
         view.addSubview(tableView)
+        view.addSubview(activityIndicator)
         view.backgroundColor = CustomColor.backGroundColor
     }
 
+    func makeActivityIndicator() {
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = UIActivityIndicatorView.Style.large
+        activityIndicator.color = CustomColor.titleColor
+    }
+
     func makeSearchBar() {
-        searchBar.searchBar.searchBarStyle = .minimal
-        searchBar.searchBar.placeholder = Texts.searchBarPlaceHolderText
-        searchBar.searchResultsUpdater = self
-        searchBar.searchBar.tintColor = CustomColor.textColor
-        searchBar.searchBar.barTintColor = CustomColor.textColor
-        searchBar.searchBar.searchTextField.textColor = CustomColor.textColor
+        searchBar.searchBarStyle = .minimal
+        searchBar.placeholder = Texts.searchBarPlaceHolderText
+        searchBar.delegate = self
+        searchBar.tintColor = CustomColor.textColor
+        searchBar.barTintColor = CustomColor.textColor
+        searchBar.searchTextField.textColor = CustomColor.textColor
+        searchBar.searchTextField.leftView?.tintColor = CustomColor.textColor
+        searchBar.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
+            make.left.equalTo(view).offset(16)
+            make.right.equalTo(view).offset(-16)
+        }
     }
 
     func makeSearchButton() {
-        searchButton.setTitle("Search", for: .normal)
+        searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+        searchButton.setTitle(Texts.searchButton, for: .normal)
         let color = CustomColor.titleColor
         searchButton.setTitleColor(color, for: .normal)
         searchButton.backgroundColor = UIColor.darkGray
         searchButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
         searchButton.layer.cornerRadius = 16
         searchButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
+            make.top.equalTo(searchBar.snp.bottomMargin).offset(8)
             make.left.equalTo(view).offset(16)
             make.right.equalTo(view).offset(-16)
         }
@@ -77,7 +94,6 @@ extension MovieViewController {
         navigationItem.title = Texts.moviesViewTitle
         navigationItem.titleView?.tintColor = CustomColor.titleColor
         navigationController?.navigationBar.tintColor = .systemBlue
-        navigationItem.searchController = searchBar
     }
 
 }

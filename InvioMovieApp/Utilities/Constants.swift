@@ -25,16 +25,8 @@ enum CustomColor {
 }
 
 enum Texts {
-    static let appTitle = NSLocalizedString("Movies", comment: "App title")
-    static let movieTabTitle = NSLocalizedString("Movies", comment: "Tabbar movies button")
-    static let bookMarkTabTitle =  NSLocalizedString("Bookmarks", comment: "Tabbar bookmark button")
+    static let searchButton = NSLocalizedString("Search", comment: "SearchButton Title")
     static let moviesViewTitle = NSLocalizedString("Movies You Looking For ?", comment: "MoviesView Navigation Title")
-    static let bookmarkViewTitle = NSLocalizedString("Your Favourite Movies",
-                                                     comment: "BookmarkView Navigation Title")
-    static let detailReleaseTitle = NSLocalizedString("Release Date:",
-                                                      comment: "MovieDetailView relase date text title")
-    static let detailRateTitle = NSLocalizedString("Rate:",
-                                                   comment: "MovieDetailView rate text title")
     static let searchBarPlaceHolderText = NSLocalizedString("Enter the movie name",
                                                             comment: "Searchbar Placeholder text")
 }

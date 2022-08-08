@@ -11,9 +11,12 @@ class MovieViewController: UIViewController {
 
     private let viewModel = MovieViewModel()
     private var movieData: MoviesData?
+    private var notFound: Search?
+    private var searchText = String()
 
+    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     let appearance = UINavigationBarAppearance()
-    let searchBar = UISearchController()
+    let searchBar = UISearchBar()
     let searchButton = UIButton()
     let tableView = UITableView()
 
@@ -21,7 +24,6 @@ class MovieViewController: UIViewController {
         super.viewDidLoad()
 
         configureView()
-        callMovie(callTitle: "godfather")
     }
 
     func callMovie(callTitle: String) {
@@ -29,8 +31,22 @@ class MovieViewController: UIViewController {
             DispatchQueue.main.async {
                 self.movieData = result
                 self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
             }
         }
+
+        viewModel.getSearchNotFoundMovies(for: callTitle) { _ in
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.showAlert()
+            }
+        }
+    }
+
+    @objc func searchButtonTapped(_ sender: UIButton) {
+        callMovie(callTitle: searchText)
+        self.activityIndicator.startAnimating()
+        self.tableView.reloadData()
     }
 
 }
@@ -38,7 +54,7 @@ class MovieViewController: UIViewController {
 extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.numberOfRowsInSection(section: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,21 +68,13 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cellSelect: UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath) else { return }
-        cellSelect.selectionStyle = .none
-        let movieDetailViewController = MovieDetailViewController()
-//        let movie = viewModal.didSelectedRowAt(indexPath: indexPath)
-//        Singleton.movieDetailData = movie
-        self.navigationController?.navigationBar.isHidden = false
-        movieDetailViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(movieDetailViewController, animated: true)
+        openDetailView()
     }
 
 }
 
-extension MovieViewController: UISearchBarDelegate, UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text,
-                      text.trimmingCharacters(in: CharacterSet.whitespaces).count >= 1  else {return}
-        callMovie(callTitle: text)
+extension MovieViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchText = searchText
     }
 }
