@@ -21,6 +21,8 @@
 		D0A4B96A28A0B1C1003090F6 /* MovieNotFoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A4B96928A0B1C1003090F6 /* MovieNotFoundService.swift */; };
 		D0A4B96E28A0BA31003090F6 /* DetailFetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A4B96D28A0BA31003090F6 /* DetailFetchData.swift */; };
 		D0A4B97028A0BAA1003090F6 /* MakeMovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A4B96F28A0BAA1003090F6 /* MakeMovieDetailView.swift */; };
+		D0A4B97228A16497003090F6 /* HeroHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A4B97128A16497003090F6 /* HeroHelper.swift */; };
+		D0A4B97528A16552003090F6 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = D0A4B97428A16552003090F6 /* Hero */; };
 		D0DB4745289D08E900AA5A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DB4744289D08E900AA5A92 /* AppDelegate.swift */; };
 		D0DB4747289D08E900AA5A92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DB4746289D08E900AA5A92 /* SceneDelegate.swift */; };
 		D0DB4749289D08E900AA5A92 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DB4748289D08E900AA5A92 /* MovieViewController.swift */; };
@@ -43,6 +45,7 @@
 		D0A4B96928A0B1C1003090F6 /* MovieNotFoundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNotFoundService.swift; sourceTree = "<group>"; };
 		D0A4B96D28A0BA31003090F6 /* DetailFetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFetchData.swift; sourceTree = "<group>"; };
 		D0A4B96F28A0BAA1003090F6 /* MakeMovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeMovieDetailView.swift; sourceTree = "<group>"; };
+		D0A4B97128A16497003090F6 /* HeroHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHelper.swift; sourceTree = "<group>"; };
 		D0DB4741289D08E900AA5A92 /* InvioMovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvioMovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DB4744289D08E900AA5A92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0DB4746289D08E900AA5A92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 			files = (
 				D0A4B95E289ED0BE003090F6 /* Alamofire in Frameworks */,
 				D0DB4782289D1D7100AA5A92 /* Kingfisher in Frameworks */,
+				D0A4B97528A16552003090F6 /* Hero in Frameworks */,
 				D0DB4785289D1D8100AA5A92 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +148,7 @@
 			children = (
 				D0A4B950289E606C003090F6 /* Constants.swift */,
 				D0A4B96528A04B98003090F6 /* MovieViewController+Ext.swift */,
+				D0A4B97128A16497003090F6 /* HeroHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				D0DB4781289D1D7100AA5A92 /* Kingfisher */,
 				D0DB4784289D1D8100AA5A92 /* SnapKit */,
 				D0A4B95D289ED0BE003090F6 /* Alamofire */,
+				D0A4B97428A16552003090F6 /* Hero */,
 			);
 			productName = InvioMovieApp;
 			productReference = D0DB4741289D08E900AA5A92 /* InvioMovieApp.app */;
@@ -224,6 +230,7 @@
 				D0DB4780289D1D7100AA5A92 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				D0DB4783289D1D8100AA5A92 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D0A4B95C289ED0BE003090F6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				D0A4B97328A16552003090F6 /* XCRemoteSwiftPackageReference "Hero" */,
 			);
 			productRefGroup = D0DB4742289D08E900AA5A92 /* Products */;
 			projectDirPath = "";
@@ -275,6 +282,7 @@
 				D0A4B94F289E5F57003090F6 /* MovieDetailViewController.swift in Sources */,
 				D0DB4749289D08E900AA5A92 /* MovieViewController.swift in Sources */,
 				D0A4B96A28A0B1C1003090F6 /* MovieNotFoundService.swift in Sources */,
+				D0A4B97228A16497003090F6 /* HeroHelper.swift in Sources */,
 				D0A4B958289E711C003090F6 /* MovieViewModel.swift in Sources */,
 				D0DB4745289D08E900AA5A92 /* AppDelegate.swift in Sources */,
 				D0DB4747289D08E900AA5A92 /* SceneDelegate.swift in Sources */,
@@ -496,6 +504,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		D0A4B97328A16552003090F6 /* XCRemoteSwiftPackageReference "Hero" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HeroTransitions/Hero.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		D0DB4780289D1D7100AA5A92 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -519,6 +535,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D0A4B95C289ED0BE003090F6 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		D0A4B97428A16552003090F6 /* Hero */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0A4B97328A16552003090F6 /* XCRemoteSwiftPackageReference "Hero" */;
+			productName = Hero;
 		};
 		D0DB4781289D1D7100AA5A92 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

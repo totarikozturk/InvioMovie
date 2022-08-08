@@ -26,6 +26,16 @@ class MovieDetailViewController: UIViewController {
         updateDetailUI()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        enableHero()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        disableHero()
+    }
+
     func updateDetailUI() {
         guard let movie = DetailFetchdata.data else { return }
         detailTitle.text = movie.title

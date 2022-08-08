@@ -61,6 +61,7 @@ extension MovieCell {
         movieTitle.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.left.equalTo(movieImage.snp.right).offset(8)
+            make.right.equalToSuperview().offset(-8)
         }
     }
 
@@ -70,6 +71,7 @@ extension MovieCell {
         movieGenre.snp.makeConstraints { make in
             make.top.equalTo(movieTitle.snp.bottomMargin).offset(8)
             make.left.equalTo(movieImage.snp.right).offset(8)
+            make.right.equalToSuperview().offset(-8)
         }
     }
 

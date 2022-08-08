@@ -13,7 +13,8 @@ extension MovieViewController {
         let movieDetailViewController = MovieDetailViewController()
         self.navigationController?.navigationBar.isHidden = false
         movieDetailViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(movieDetailViewController, animated: true)
+//        navigationController?.pushViewController(movieDetailViewController, animated: true)
+        showHero(movieDetailViewController)
     }
 
     func showAlert() {

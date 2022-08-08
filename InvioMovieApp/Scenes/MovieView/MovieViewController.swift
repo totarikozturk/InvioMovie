@@ -26,6 +26,16 @@ class MovieViewController: UIViewController {
         configureView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        enableHero()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        disableHero()
+    }
+
     func callMovie(callTitle: String) {
         viewModel.getMovies(for: callTitle) { result in
             DispatchQueue.main.async {
