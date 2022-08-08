@@ -12,6 +12,7 @@ On this screen, the user determines the movie wants to search, then the results 
  	-Snapkit
 	-Kingfisher
 	-Alamofire
+	-Hero
 	-OMDB Api
 
 **Requirements**
