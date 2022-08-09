@@ -9,6 +9,7 @@ import UIKit
 
 extension MovieViewController {
 
+// MARK: configureView
     func configureView() {
         drawDesign()
         makeActivityIndicator()
@@ -18,6 +19,7 @@ extension MovieViewController {
         makeTableView()
     }
 
+// MARK: drawDesign
     func drawDesign() {
         view.addSubview(searchBar)
         view.addSubview(searchButton)
@@ -26,6 +28,7 @@ extension MovieViewController {
         view.backgroundColor = CustomColor.backGroundColor
     }
 
+// MARK: makeActivityIndicator
     func makeActivityIndicator() {
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
@@ -33,9 +36,10 @@ extension MovieViewController {
         activityIndicator.color = CustomColor.titleColor
     }
 
+// MARK: makeSearchBar
     func makeSearchBar() {
         searchBar.searchBarStyle = .minimal
-        searchBar.placeholder = Texts.searchBarPlaceHolderText
+        searchBar.placeholder = "Home.searchBarPlaceHolderText".localized
         searchBar.delegate = self
         searchBar.tintColor = CustomColor.textColor
         searchBar.barTintColor = CustomColor.textColor
@@ -48,9 +52,10 @@ extension MovieViewController {
         }
     }
 
+// MARK: makeSearchButton
     func makeSearchButton() {
         searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
-        searchButton.setTitle(Texts.searchButton, for: .normal)
+        searchButton.setTitle("Home.searchButton".localized, for: .normal)
         let color = CustomColor.titleColor
         searchButton.setTitleColor(color, for: .normal)
         searchButton.backgroundColor = UIColor.darkGray
@@ -63,6 +68,7 @@ extension MovieViewController {
         }
     }
 
+// MARK: makeTableView
     func makeTableView() {
         tableView.backgroundColor = CustomColor.backGroundColor
         tableView.delegate = self
@@ -79,6 +85,7 @@ extension MovieViewController {
         }
     }
 
+// MARK: navigationBarAppearance
     func navigationBarAppearance() {
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = CustomColor.backGroundColor
@@ -90,7 +97,7 @@ extension MovieViewController {
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.backgroundColor = CustomColor.backGroundColor
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationItem.title = Texts.moviesViewTitle
+        navigationItem.title = "Home.movieViewTitle".localized
         navigationItem.titleView?.tintColor = CustomColor.titleColor
         navigationController?.navigationBar.tintColor = CustomColor.titleColor
     }

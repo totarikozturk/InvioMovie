@@ -7,21 +7,21 @@
 
 import UIKit
 
-extension MovieViewController {
+// MARK: UIAlert
+extension UIViewController {
 
-    func openDetailView() {
-        guard let data = self.movieData else { return }
-        let movieDetailViewController = MovieDetailViewController(movieData: data)
-        self.navigationController?.navigationBar.isHidden = false
-        movieDetailViewController.modalPresentationStyle = .fullScreen
-        showHero(movieDetailViewController)
-    }
+    func displayAlertMessage(title: String, message: String, actionTitle: String) {
+          let alertMessage = UIAlertController(title: title,
+                                               message: message,
+                                               preferredStyle: UIAlertController.Style.alert)
+        alertMessage.addAction(UIAlertAction(title: actionTitle, style: UIAlertAction.Style.default, handler: nil))
+          self.present(alertMessage, animated: true, completion: nil)
+      }
+}
 
-    func showAlert() {
-        let alert = UIAlertController(title: "Error",
-                                      message: "The movie you searched is not found!",
-                                      preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Try again", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+// MARK: String for localization
+extension String {
+    var localized: String {
+        NSLocalizedString(self, comment: "")
     }
 }

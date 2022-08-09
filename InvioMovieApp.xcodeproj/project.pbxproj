@@ -22,6 +22,7 @@
 		D0A4B97028A0BAA1003090F6 /* MovieDetailView+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A4B96F28A0BAA1003090F6 /* MovieDetailView+UI.swift */; };
 		D0A4B97228A16497003090F6 /* HeroHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A4B97128A16497003090F6 /* HeroHelper.swift */; };
 		D0A4B97528A16552003090F6 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = D0A4B97428A16552003090F6 /* Hero */; };
+		D0A4B97728A268B1003090F6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0A4B97628A268B1003090F6 /* Localizable.strings */; };
 		D0DB4745289D08E900AA5A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DB4744289D08E900AA5A92 /* AppDelegate.swift */; };
 		D0DB4747289D08E900AA5A92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DB4746289D08E900AA5A92 /* SceneDelegate.swift */; };
 		D0DB4749289D08E900AA5A92 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DB4748289D08E900AA5A92 /* MovieViewController.swift */; };
@@ -44,6 +45,7 @@
 		D0A4B96928A0B1C1003090F6 /* MovieNotFoundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNotFoundService.swift; sourceTree = "<group>"; };
 		D0A4B96F28A0BAA1003090F6 /* MovieDetailView+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieDetailView+UI.swift"; sourceTree = "<group>"; };
 		D0A4B97128A16497003090F6 /* HeroHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHelper.swift; sourceTree = "<group>"; };
+		D0A4B97628A268B1003090F6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		D0DB4741289D08E900AA5A92 /* InvioMovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvioMovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DB4744289D08E900AA5A92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0DB4746289D08E900AA5A92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				D0DB474D289D08EA00AA5A92 /* Assets.xcassets */,
 				D0DB4752289D08EA00AA5A92 /* Info.plist */,
+				D0A4B97628A268B1003090F6 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = D0DB4738289D08E900AA5A92;
 			packageReferences = (
@@ -244,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0DB474E289D08EA00AA5A92 /* Assets.xcassets in Resources */,
+				D0A4B97728A268B1003090F6 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

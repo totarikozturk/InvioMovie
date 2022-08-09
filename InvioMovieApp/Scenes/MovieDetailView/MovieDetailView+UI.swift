@@ -9,6 +9,7 @@ import UIKit
 
 extension MovieDetailViewController {
 
+// MARK: configureView
     func configureView() {
         drawDesign()
         navigationBarAppearance()
@@ -21,6 +22,7 @@ extension MovieDetailViewController {
         makeDetailPlot()
     }
 
+// MARK: drawDesign
     func drawDesign() {
         view.addSubview(posterView)
         view.addSubview(genreLabel)
@@ -32,6 +34,7 @@ extension MovieDetailViewController {
         view.backgroundColor = CustomColor.contentViewColor
     }
 
+// MARK: makeDetailPoster
     func makeDetailPoster() {
         posterView.layer.cornerRadius = 16
         posterView.clipsToBounds = true
@@ -43,6 +46,7 @@ extension MovieDetailViewController {
         }
     }
 
+// MARK: makeDetailGenre
     func makeDetailGenre() {
         genreLabel.textColor = CustomColor.textColor
         genreLabel.font = .boldSystemFont(ofSize: 32)
@@ -52,8 +56,9 @@ extension MovieDetailViewController {
         }
     }
 
+// MARK: makeDetailYearLabel
     func makeDetailYearLabel() {
-        yearTitleLabel.text = Texts.detailYearLabel
+        yearTitleLabel.text = "Detail.yearLabel".localized
         yearTitleLabel.textColor = CustomColor.titleColor
         yearTitleLabel.font = .boldSystemFont(ofSize: 24)
         yearTitleLabel.snp.makeConstraints { make in
@@ -61,6 +66,8 @@ extension MovieDetailViewController {
             make.left.equalTo(view.safeAreaLayoutGuide).offset(16)
         }
     }
+
+// MARK: makeDetailYear
     func makeDetailYear() {
         yearLabel.textColor = CustomColor.textColor
         yearLabel.font = .systemFont(ofSize: 22)
@@ -70,8 +77,9 @@ extension MovieDetailViewController {
         }
     }
 
+// MARK: makeDetailRateLabel
     func makeDetailRateLabel() {
-        rateTitleLabel.text = Texts.detailRateLabel
+        rateTitleLabel.text = "Detail.rateLabel".localized
         rateTitleLabel.textColor = CustomColor.titleColor
         rateTitleLabel.font = .boldSystemFont(ofSize: 24)
         rateTitleLabel.snp.makeConstraints { make in
@@ -80,6 +88,7 @@ extension MovieDetailViewController {
         }
     }
 
+// MARK: makeDetailimdbRating
     func makeDetailimdbRating() {
         imdbRatingLabel.textColor = CustomColor.textColor
         imdbRatingLabel.font = .systemFont(ofSize: 22)
@@ -89,6 +98,7 @@ extension MovieDetailViewController {
         }
     }
 
+// MARK: makeDetailPlot
     func makeDetailPlot() {
         plotLabel.lineBreakMode = .byWordWrapping
         plotLabel.numberOfLines = 0
@@ -102,6 +112,7 @@ extension MovieDetailViewController {
         }
     }
 
+// MARK: navigationBarAppearance
     func navigationBarAppearance() {
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = CustomColor.backGroundColor

@@ -49,6 +49,7 @@ class MovieDetailViewController: UIViewController {
         disableHero()
     }
 
+// MARK: updateDetailUI
     func updateDetailUI() {
         let movie = self.movieData
         titleLabel.text = movie.title

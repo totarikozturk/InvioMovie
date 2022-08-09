@@ -36,7 +36,7 @@ class MovieViewController: UIViewController {
 
         disableHero()
     }
-
+// MARK: callMovie
     func callMovie(callTitle: String) {
         viewModel.getMovies(for: callTitle) { result in
             DispatchQueue.main.async {
@@ -49,17 +49,20 @@ class MovieViewController: UIViewController {
         viewModel.getSearchNotFoundMovies(for: callTitle) { _ in
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
-                self.showAlert()
+                self.displayAlertMessage(title: "Error",
+                                         message: "The movie you searched is not found!",
+                                        actionTitle: "Try again")
             }
         }
     }
-
+// MARK: searchButtonTapped
     @objc func searchButtonTapped(_ sender: UIButton) {
         callMovie(callTitle: searchText)
         self.activityIndicator.startAnimating()
         self.tableView.reloadData()
     }
 }
+
  // MARK: UITableViewDelegate, UITableViewDataSource
 extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -86,5 +89,17 @@ extension MovieViewController: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchText = searchText
+    }
+}
+
+// MARK: Open DetailView
+private extension MovieViewController {
+
+    func openDetailView() {
+        guard let data = self.movieData else { return }
+        let movieDetailViewController = MovieDetailViewController(movieData: data)
+        self.navigationController?.navigationBar.isHidden = false
+        movieDetailViewController.modalPresentationStyle = .fullScreen
+        showHero(movieDetailViewController)
     }
 }

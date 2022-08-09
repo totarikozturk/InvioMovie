@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  InvioMovieApp
+
+  Created by TarıkOzturk on 9.08.2022.
+  
+*/
+
+Home.searchButton = "Search";
+Home.movieViewTitle = "Movies You Looking For ?";
+Home.searchBarPlaceHolderText = "Enter the movie name";
+Detail.yearLabel = "Year:";
+Detail.rateLabel = "Rate:";
