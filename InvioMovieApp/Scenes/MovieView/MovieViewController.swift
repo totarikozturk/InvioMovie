@@ -36,7 +36,7 @@ class MovieViewController: UIViewController {
 
         disableHero()
     }
-// MARK: callMovie
+    // MARK: callMovie
     func callMovie(callTitle: String) {
         viewModel.getMovies(for: callTitle) { result in
             DispatchQueue.main.async {
@@ -55,7 +55,7 @@ class MovieViewController: UIViewController {
             }
         }
     }
-// MARK: searchButtonTapped
+    // MARK: searchButtonTapped
     @objc func searchButtonTapped(_ sender: UIButton) {
         callMovie(callTitle: searchText)
         self.activityIndicator.startAnimating()

@@ -27,12 +27,12 @@ class MovieCell: UITableViewCell {
         fatalError("\(ErrorCode.fatalInitError)")
     }
 
-// MARK: setCellWithValuesOf
+    // MARK: setCellWithValuesOf
     func setCellWithValuesOf(_ movie: MoviesData) {
         updateUI(poster: movie.poster, title: movie.title, genre: movie.genre, plot: movie.plot)
     }
 
-// MARK: updateUI
+    // MARK: updateUI
     private func updateUI(poster: String?, title: String?, genre: String?, plot: String?) {
 
         guard let posterString = poster else { return }

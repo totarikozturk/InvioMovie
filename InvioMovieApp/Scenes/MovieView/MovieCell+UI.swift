@@ -9,7 +9,7 @@ import UIKit
 
 extension MovieCell {
 
-// MARK: layoutSubviews
+    // MARK: layoutSubviews
     override func layoutSubviews() {
         super.layoutSubviews()
         let bottomSpace: CGFloat = 10.0
@@ -20,7 +20,7 @@ extension MovieCell {
                                                               right: 0))
     }
 
-// MARK: configure
+    // MARK: configure
     func configure() {
         drawDesign()
         makeMovieImage()
@@ -29,7 +29,7 @@ extension MovieCell {
         makeMoviePlot()
     }
 
-// MARK: drawDesign
+    // MARK: drawDesign
     func drawDesign() {
         contentView.backgroundColor = CustomColor.contentViewColor
         contentView.layer.cornerRadius = 24
@@ -41,7 +41,7 @@ extension MovieCell {
         addSubview(plotLabel)
     }
 
-// MARK: makeMovieImage
+    // MARK: makeMovieImage
     func makeMovieImage() {
         posterView.layer.cornerRadius = 16
         posterView.clipsToBounds = true
@@ -53,7 +53,7 @@ extension MovieCell {
         }
     }
 
-// MARK: makeMovieTitle
+    // MARK: makeMovieTitle
     func makeMovieTitle() {
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.numberOfLines = 0
@@ -69,7 +69,7 @@ extension MovieCell {
         }
     }
 
-// MARK: makeMovieGenre
+    // MARK: makeMovieGenre
     func makeMovieGenre() {
         genreLabel.textColor = CustomColor.textColor
         genreLabel.font = .systemFont(ofSize: 20)
@@ -80,7 +80,7 @@ extension MovieCell {
         }
     }
 
-// MARK: makeMoviePlot
+    // MARK: makeMoviePlot
     func makeMoviePlot() {
         plotLabel.lineBreakMode = .byWordWrapping
         plotLabel.numberOfLines = 0

@@ -9,7 +9,7 @@ import UIKit
 
 extension MovieViewController {
 
-// MARK: configureView
+    // MARK: configureView
     func configureView() {
         drawDesign()
         makeActivityIndicator()
@@ -19,7 +19,7 @@ extension MovieViewController {
         makeTableView()
     }
 
-// MARK: drawDesign
+    // MARK: drawDesign
     func drawDesign() {
         view.addSubview(searchBar)
         view.addSubview(searchButton)
@@ -28,7 +28,7 @@ extension MovieViewController {
         view.backgroundColor = CustomColor.backGroundColor
     }
 
-// MARK: makeActivityIndicator
+    // MARK: makeActivityIndicator
     func makeActivityIndicator() {
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
@@ -36,7 +36,7 @@ extension MovieViewController {
         activityIndicator.color = CustomColor.titleColor
     }
 
-// MARK: makeSearchBar
+    // MARK: makeSearchBar
     func makeSearchBar() {
         searchBar.searchBarStyle = .minimal
         searchBar.placeholder = "Home.searchBarPlaceHolderText".localized
@@ -52,7 +52,7 @@ extension MovieViewController {
         }
     }
 
-// MARK: makeSearchButton
+    // MARK: makeSearchButton
     func makeSearchButton() {
         searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         searchButton.setTitle("Home.searchButton".localized, for: .normal)
@@ -68,7 +68,7 @@ extension MovieViewController {
         }
     }
 
-// MARK: makeTableView
+    // MARK: makeTableView
     func makeTableView() {
         tableView.backgroundColor = CustomColor.backGroundColor
         tableView.delegate = self
@@ -85,7 +85,7 @@ extension MovieViewController {
         }
     }
 
-// MARK: navigationBarAppearance
+    // MARK: navigationBarAppearance
     func navigationBarAppearance() {
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = CustomColor.backGroundColor
