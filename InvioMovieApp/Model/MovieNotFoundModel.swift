@@ -15,5 +15,4 @@ struct SearchNotFound: Codable {
         case response = "Response"
         case error = "Error"
     }
-
 }

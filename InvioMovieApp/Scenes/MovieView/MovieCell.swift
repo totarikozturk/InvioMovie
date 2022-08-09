@@ -4,23 +4,23 @@
 //
 //  Created by TarıkOzturk on 7.08.2022.
 //
-
-import UIKit
 import Kingfisher
+import UIKit
 
 class MovieCell: UITableViewCell {
 
     let movieCell = CellIdentifier.movieCellIdentifier
 
-    let movieImage = UIImageView()
-    let movieTitle = UILabel()
-    let movieGenre = UILabel()
-    let moviePlot = UILabel()
+    let posterView = UIImageView()
+    let titleLabel = UILabel()
+    let genreLabel = UILabel()
+    let plotLabel = UILabel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configure()
+        selectionStyle = .none
     }
 
     required init(coder: NSCoder) {
@@ -35,10 +35,9 @@ class MovieCell: UITableViewCell {
 
         guard let posterString = poster else { return }
         let url = URL(string: posterString)
-        self.movieImage.kf.setImage(with: url)
-        self.movieTitle.text = title
-        self.movieGenre.text = genre
-        self.moviePlot.text = plot
+        self.posterView.kf.setImage(with: url)
+        self.titleLabel.text = title
+        self.genreLabel.text = genre
+        self.plotLabel.text = plot
     }
-
 }

@@ -4,9 +4,8 @@
 //
 //  Created by TarıkOzturk on 7.08.2022.
 //
-
-import UIKit
 import SnapKit
+import UIKit
 
 extension MovieViewController {
 
@@ -85,7 +84,7 @@ extension MovieViewController {
         appearance.backgroundColor = CustomColor.backGroundColor
         guard let customColor = CustomColor.titleColor else { return }
         appearance.largeTitleTextAttributes = [.foregroundColor: customColor]
-        appearance.titleTextAttributes  = [.foregroundColor: customColor]
+        appearance.titleTextAttributes = [.foregroundColor: customColor]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.barStyle = .default
@@ -93,7 +92,6 @@ extension MovieViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = Texts.moviesViewTitle
         navigationItem.titleView?.tintColor = CustomColor.titleColor
-        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationController?.navigationBar.tintColor = CustomColor.titleColor
     }
-
 }

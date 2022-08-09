@@ -30,5 +30,4 @@ struct MoviesData: Codable {
             case poster = "Poster"
             case imdbRating = "imdbRating"
     }
-
 }

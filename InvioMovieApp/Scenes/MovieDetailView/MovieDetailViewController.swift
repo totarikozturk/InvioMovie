@@ -10,14 +10,25 @@ import UIKit
 class MovieDetailViewController: UIViewController {
 
     let appearance = UINavigationBarAppearance()
-    let detailTitle = UILabel()
-    var detailPoster = UIImageView()
-    let detailGenre = UILabel()
-    let detailYearLabel = UILabel()
-    let detailYear = UILabel()
-    let detailRateLabel = UILabel()
-    let detailimdbRating = UILabel()
-    let detailPlot = UILabel()
+    let titleLabel = UILabel()
+    var posterView = UIImageView()
+    let genreLabel = UILabel()
+    let yearTitleLabel = UILabel()
+    let yearLabel = UILabel()
+    let rateTitleLabel = UILabel()
+    let imdbRatingLabel = UILabel()
+    let plotLabel = UILabel()
+
+    private let movieData: MoviesData
+
+    init(movieData: MoviesData) {
+        self.movieData = movieData
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,14 +50,14 @@ class MovieDetailViewController: UIViewController {
     }
 
     func updateDetailUI() {
-        guard let movie = DetailFetchdata.data else { return }
-        detailTitle.text = movie.title
+        let movie = self.movieData
+        titleLabel.text = movie.title
         let url = URL(string: movie.poster)
-        detailPoster.kf.setImage(with: url)
-        detailYear.text = movie.year
-        detailGenre.text = movie.genre
-        detailimdbRating.text = movie.imdbRating
-        detailPlot.text = movie.plot
+        posterView.kf.setImage(with: url)
+        yearLabel.text = movie.year
+        genreLabel.text = movie.genre
+        imdbRatingLabel.text = movie.imdbRating
+        plotLabel.text = movie.plot
+        navigationItem.title = movie.title
     }
-
 }

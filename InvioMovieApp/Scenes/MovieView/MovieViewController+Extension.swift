@@ -10,10 +10,10 @@ import UIKit
 extension MovieViewController {
 
     func openDetailView() {
-        let movieDetailViewController = MovieDetailViewController()
+        guard let data = self.movieData else { return }
+        let movieDetailViewController = MovieDetailViewController(movieData: data)
         self.navigationController?.navigationBar.isHidden = false
         movieDetailViewController.modalPresentationStyle = .fullScreen
-//        navigationController?.pushViewController(movieDetailViewController, animated: true)
         showHero(movieDetailViewController)
     }
 
@@ -24,5 +24,4 @@ extension MovieViewController {
         alert.addAction(UIAlertAction(title: "Try again", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-
 }

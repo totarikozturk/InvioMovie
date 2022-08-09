@@ -4,9 +4,8 @@
 //
 //  Created by TarıkOzturk on 7.08.2022.
 //
-
-import UIKit
 import SnapKit
+import UIKit
 
 extension MovieCell {
 
@@ -33,16 +32,16 @@ extension MovieCell {
         contentView.layer.cornerRadius = 24
         contentView.clipsToBounds = true
         backgroundColor = CustomColor.backGroundColor
-        addSubview(movieImage)
-        addSubview(movieTitle)
-        addSubview(movieGenre)
-        addSubview(moviePlot)
+        addSubview(posterView)
+        addSubview(titleLabel)
+        addSubview(genreLabel)
+        addSubview(plotLabel)
     }
 
     func makeMovieImage() {
-        movieImage.layer.cornerRadius = 16
-        movieImage.clipsToBounds = true
-        movieImage.snp.makeConstraints { make in
+        posterView.layer.cornerRadius = 16
+        posterView.clipsToBounds = true
+        posterView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.bottom.equalToSuperview().offset(-16)
             make.left.equalToSuperview().offset(8)
@@ -51,41 +50,40 @@ extension MovieCell {
     }
 
     func makeMovieTitle() {
-        movieTitle.lineBreakMode = .byWordWrapping
-        movieTitle.numberOfLines = 0
-        movieTitle.textAlignment = .left
-        movieTitle.minimumScaleFactor = 1
-        movieTitle.adjustsFontSizeToFitWidth = true
-        movieTitle.textColor = CustomColor.textColor
-        movieTitle.font = .boldSystemFont(ofSize: 24)
-        movieTitle.snp.makeConstraints { make in
+        titleLabel.lineBreakMode = .byWordWrapping
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .left
+        titleLabel.minimumScaleFactor = 1
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.textColor = CustomColor.textColor
+        titleLabel.font = .boldSystemFont(ofSize: 24)
+        titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
-            make.left.equalTo(movieImage.snp.right).offset(8)
+            make.left.equalTo(posterView.snp.right).offset(8)
             make.right.equalToSuperview().offset(-8)
         }
     }
 
     func makeMovieGenre() {
-        movieGenre.textColor = CustomColor.textColor
-        movieGenre.font = .systemFont(ofSize: 20)
-        movieGenre.snp.makeConstraints { make in
-            make.top.equalTo(movieTitle.snp.bottomMargin).offset(8)
-            make.left.equalTo(movieImage.snp.right).offset(8)
+        genreLabel.textColor = CustomColor.textColor
+        genreLabel.font = .systemFont(ofSize: 20)
+        genreLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottomMargin).offset(8)
+            make.left.equalTo(posterView.snp.right).offset(8)
             make.right.equalToSuperview().offset(-8)
         }
     }
 
     func makeMoviePlot() {
-        moviePlot.lineBreakMode = .byWordWrapping
-        moviePlot.numberOfLines = 0
-        moviePlot.textAlignment = .left
-        moviePlot.textColor = CustomColor.textColor
-        moviePlot.font = .systemFont(ofSize: 16)
-        moviePlot.snp.makeConstraints { make in
-            make.top.equalTo(movieGenre.snp.bottomMargin).offset(16)
-            make.left.equalTo(movieImage.snp.right).offset(8)
+        plotLabel.lineBreakMode = .byWordWrapping
+        plotLabel.numberOfLines = 0
+        plotLabel.textAlignment = .left
+        plotLabel.textColor = CustomColor.textColor
+        plotLabel.font = .systemFont(ofSize: 16)
+        plotLabel.snp.makeConstraints { make in
+            make.top.equalTo(genreLabel.snp.bottomMargin).offset(16)
+            make.left.equalTo(posterView.snp.right).offset(8)
             make.right.equalTo(safeAreaLayoutGuide).offset(-8)
         }
     }
-
 }

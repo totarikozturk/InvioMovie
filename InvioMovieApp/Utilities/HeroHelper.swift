@@ -4,9 +4,8 @@
 //
 //  Created by TarıkOzturk on 8.08.2022.
 //
-
-import UIKit
 import Hero
+import UIKit
 
 extension UIViewController {
 
@@ -27,7 +26,6 @@ extension UIViewController {
         navigationController?.hero.navigationAnimationType = navigationAnimationType
         navigationController?.pushViewController(viewController, animated: true)
     }
-
 }
 
 extension UINavigationController {
@@ -39,5 +37,4 @@ extension UINavigationController {
         hero.navigationAnimationType = navigationAnimationType
         pushViewController(viewController, animated: true)
     }
-
 }

@@ -10,15 +10,14 @@ import UIKit
 class MovieViewController: UIViewController {
 
     private let viewModel = MovieViewModel()
-    private var movieData: MoviesData?
-    private var notFound: SearchNotFound?
     private var searchText = String()
 
-    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    let activityIndicator = UIActivityIndicatorView()
     let appearance = UINavigationBarAppearance()
     let searchBar = UISearchBar()
     let searchButton = UIButton()
     let tableView = UITableView()
+    var movieData: MoviesData?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +40,7 @@ class MovieViewController: UIViewController {
     func callMovie(callTitle: String) {
         viewModel.getMovies(for: callTitle) { result in
             DispatchQueue.main.async {
-                self.movieData = result
+                print(result)
                 self.tableView.reloadData()
                 self.activityIndicator.stopAnimating()
             }
@@ -60,38 +59,32 @@ class MovieViewController: UIViewController {
         self.activityIndicator.startAnimating()
         self.tableView.reloadData()
     }
-
 }
-
+ // MARK: UITableViewDelegate, UITableViewDataSource
 extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection(section: section)
+         viewModel.numberOfRowsInSection(section: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.movieCellIdentifier,
                                                        for: indexPath) as? MovieCell else { return UITableViewCell() }
-        cell.selectionStyle = .none
-        let movie = self.movieData
-        guard let cellData = movie else { return cell }
-        cell.setCellWithValuesOf(cellData)
+        let movie = viewModel.cellForRow()
+        cell.setCellWithValuesOf(movie)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cellSelect: UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath) else { return }
-        cellSelect.selectionStyle = .none
-        DetailFetchdata.data = self.movieData
+        self.movieData = viewModel.didSelectedRow()
         openDetailView()
     }
-
 }
 
+// MARK: UISearchBarDelegate
 extension MovieViewController: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchText = searchText
     }
-
 }

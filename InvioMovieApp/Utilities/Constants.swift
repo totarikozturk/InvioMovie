@@ -11,13 +11,11 @@ enum APIKey {
 
     static let baseUrl = "https://www.omdbapi.com/"
     static let apiKey = "2704612c"
-
 }
 
 enum CellIdentifier {
 
     static let movieCellIdentifier = "MovieCell"
-
 }
 
 enum CustomColor {
@@ -27,7 +25,6 @@ enum CustomColor {
     static let titleColor = UIColor(named: "TitleColor")
     static let contentViewColor = UIColor(named: "ContentColor")
     static let rateColor = UIColor(named: "RateColor")
-
 }
 
 enum Texts {
@@ -45,5 +42,4 @@ enum Texts {
 enum ErrorCode {
 
     static let fatalInitError = "init(coder:) has not been implemented"
-
 }

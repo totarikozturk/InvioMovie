@@ -15,7 +15,7 @@ class MovieViewModel {
     private var notFoundMovie: SearchNotFound?
 
     func getMovies(for searchString: String, completion: @escaping(MoviesData) -> Void ) {
-        movieService.getSearchMovies(with: searchString) { (result) in
+        movieService.getSearchMovies(with: searchString) { result in
             self.searchedMovie = result
             guard let searchedMovie = self.searchedMovie else {
                 return
@@ -25,7 +25,7 @@ class MovieViewModel {
     }
 
     func getSearchNotFoundMovies(for searchString: String, completion: @escaping(SearchNotFound) -> Void ) {
-        movieNotFoundService.getSearchNotFoundMovies(with: searchString) { (result) in
+        movieNotFoundService.getSearchNotFoundMovies(with: searchString) { result in
             self.notFoundMovie = result
             guard let notfound = self.notFoundMovie else {
                 return
@@ -41,4 +41,13 @@ class MovieViewModel {
         return 0
     }
 
+    func cellForRow() -> MoviesData {
+        guard let data = self.searchedMovie else { return cellForRow() }
+        return data
+    }
+
+    func didSelectedRow() -> MoviesData {
+        guard let data = self.searchedMovie else { return didSelectedRow() }
+        return data
+    }
 }

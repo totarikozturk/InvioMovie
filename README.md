@@ -8,7 +8,6 @@ On this screen, the user determines the movie wants to search, then the results 
 **Keywords**
 
  	-MVVM
-	-Singleton
 	-SwiftLint
  	-Snapkit
 	-Kingfisher
